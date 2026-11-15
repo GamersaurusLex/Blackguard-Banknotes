@@ -1,0 +1,22 @@
+<section class="blackguard-banknote-migration">
+  <p>Preview the conversion before confirming. Values remain mechanically identical: <strong>N1 equals 1 cp</strong>.</p>
+  <table>
+    <thead>
+      <tr><th>Actor</th><th>Current currency</th><th>After migration</th></tr>
+    </thead>
+    <tbody>
+      {{#if candidates.length}}
+        {{#each candidates}}
+          <tr><td>{{name}}</td><td>{{native}}</td><td>{{banknotes}}</td></tr>
+        {{/each}}
+      {{else}}
+        <tr><td colspan="3">Every owned actor already has zero currency.</td></tr>
+      {{/if}}
+    </tbody>
+  </table>
+  <footer class="form-footer">
+    <button type="button" data-action="migrate" {{#unless candidates.length}}disabled{{/unless}}>
+      <i class="fa-solid fa-money-bill"></i> Confirm Migration
+    </button>
+  </footer>
+</section>

@@ -1,0 +1,87 @@
+.blackguard-banknote {
+  align-items: center;
+  background: linear-gradient(135deg, #eee6c7, #c4ad70);
+  border: 1px solid #5a4b25;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+  color: #241b0a;
+  display: inline-flex;
+  font-family: var(--font-primary);
+  font-size: 0.86em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0.12em;
+  min-width: 2.35em;
+  padding: 0.08em 0.28em;
+  text-align: center;
+}
+
+.blackguard-banknote::before {
+  color: #70571c;
+  content: "N";
+  font-size: 0.85em;
+  font-weight: 900;
+  margin-right: 0.16em;
+  text-decoration: underline;
+  text-decoration-color: rgb(112 87 28 / 50%);
+}
+
+.coinage .denomination.banknotes .currency-image {
+  align-items: center;
+  background: #d8c69b;
+  border: 1px solid #5a4b25;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.coinage .denomination.banknotes .currency-image img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.coinage .currency > .blackguard-banknote-edit {
+  align-self: center;
+  flex: 0 0 auto;
+  height: 2.25rem;
+  margin-left: 0.3rem;
+  min-width: 2.25rem;
+  padding: 0;
+  width: 2.25rem;
+}
+
+/* PF2e stores currency as four treasure items. Banknote worlds use the single
+   balance control above instead of showing those internal denominations. */
+.app:has(.coinage .denomination.banknotes) .tab.inventory li:has(img.item-icon:is([alt="Platinum Pieces"], [alt="Gold Pieces"], [alt="Silver Pieces"], [alt="Copper Pieces"])) {
+  display: none;
+}
+
+.app:has(.coinage .denomination.banknotes) .tab.inventory .blackguard-banknotes-treasure-row {
+  display: flex;
+}
+
+.blackguard-banknotes-treasure-row img.item-icon,
+.blackguard-banknotes-treasure-row .item-image img {
+  background: #d8c69b;
+  object-fit: contain;
+}
+
+.blackguard-native-value {
+  color: var(--color-text-dark-secondary);
+  font-size: 0.8em;
+  font-style: italic;
+  margin-left: 0.3em;
+}
+
+.blackguard-banknote-migration table {
+  width: 100%;
+}
+
+.blackguard-banknote-migration th,
+.blackguard-banknote-migration td {
+  padding: 0.35rem;
+  text-align: left;
+}
