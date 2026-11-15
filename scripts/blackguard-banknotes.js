@@ -246,6 +246,10 @@ function decorateApplication(app, html) {
     hideCurrencyRows(root, app?.actor);
     replaceTreasureCoinage(root, app?.actor);
     removeToolbeltMergeControl(root);
+    // Expanded inventory entries are inserted after the sheet's initial render.
+    // Re-run the presentation pass so their price text and price inputs use N values.
+    replaceCurrencyText(root);
+    decoratePriceInputs(root);
   };
   setTimeout(refreshCurrencyUI, 0);
   const observer = new MutationObserver(refreshCurrencyUI);
